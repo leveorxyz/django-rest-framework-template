@@ -5,7 +5,10 @@ from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveAPIView,
     RetrieveUpdateAPIView,
+    RetrieveDestroyAPIView,
     RetrieveUpdateDestroyAPIView,
+    DestroyAPIView,
+    UpdateAPIView,
 )
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -108,6 +111,37 @@ class CustomRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         set_user_ip(request)
         return custom_response(response)
 
+    def patch(self, request, *args, **kwargs):
+        response = super().patch(request, *args, **kwargs)
+        set_user_ip(request)
+        return custom_response(response)
+
+    def put(self, request, *args, **kwargs):
+        response = super().put(request, *args, **kwargs)
+        set_user_ip(request)
+        return custom_response(response)
+
+
+class CustomRetrieveDestroyAPIView(RetrieveDestroyAPIView):
+    def get(self, request, *args, **kwargs):
+        response = super().get(request, *args, **kwargs)
+        set_user_ip(request)
+        return custom_response(response)
+
+    def delete(self, request, *args, **kwargs):
+        response = super().delete(request, *args, **kwargs)
+        set_user_ip(request)
+        return custom_response(response)
+
+
+class CustomDestroyAPIView(DestroyAPIView):
+    def delete(self, request, *args, **kwargs):
+        response = super().delete(request, *args, **kwargs)
+        set_user_ip(request)
+        return custom_response(response)
+
+
+class CustomUpdateAPIView(UpdateAPIView):
     def patch(self, request, *args, **kwargs):
         response = super().patch(request, *args, **kwargs)
         set_user_ip(request)
