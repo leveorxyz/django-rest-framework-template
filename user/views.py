@@ -24,6 +24,7 @@ from .models import User
 from .serializers import (
     UserSerializer,
     UserLoginSerializer,
+    UserSignUpSerializer,
     VerifyEmailSerializer,
     PasswordResetEmailSerializer,
     PasswordResetSerializer,
@@ -80,6 +81,12 @@ class LoginView(GenericAPIView):
                 "result": result,
             }
         )
+
+
+class UserSignUpView(CustomCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSignUpSerializer
+    permission_classes = [AllowAny]
 
 
 class LogoutView(CustomAPIView):

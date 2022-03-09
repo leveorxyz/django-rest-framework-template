@@ -67,7 +67,7 @@ class User(AbstractUser, CoreModel):
         blank=True,
         null=True,
     )
-    USERNAME_FIELD = "username"
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
     @classmethod

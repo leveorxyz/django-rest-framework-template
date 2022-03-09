@@ -32,6 +32,37 @@ class UserLoginSerializer(ModelSerializer):
         del extra_kwargs["email"]
 
 
+class UserSignUpSerializer(ModelSerializer):
+    profile_photo = CharField(required=False)
+
+    def validate(self, attrs):
+        if User.objects.filter(email=attrs["email"]).exists():
+            raise ValidationError("User with this mail already exists.")
+        return super().validate(attrs)
+
+    def create(self, validated_data):
+        user = User.from_validated_data(validated_data)
+
+        if validated_data.get("profile_photo"):
+            user.profile_photo = validated_data["profile_photo"]
+
+        user.save()
+
+        return user
+
+    class Meta:
+        model = User
+        fields = list(
+            set(field.name for field in model._meta.fields)
+            - set(User.get_hidden_fields() + ["_profile_photo", "last_login"])
+        ) + ["token", "profile_photo"]
+        extra_kwargs = {
+            "password": {"write_only": True, "required": True},
+            "token": {"read_only": True},
+            "email": {"required": True},
+        }
+
+
 class VerifyEmailSerializer(Serializer):
     token = CharField(required=True, write_only=True)
 
