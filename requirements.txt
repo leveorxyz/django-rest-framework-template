@@ -15,7 +15,7 @@ coreschema==0.0.4
 cryptography==35.0.0
 distlib==0.3.3
 dj-database-url==0.5.0
-Django==3.2.10
+Django==3.2.12
 django-cors-headers==3.9.0
 django-debug-toolbar==3.2.2
 django-filter==21.1
