@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # Third Party Apps,
     "corsheaders",
     "django_filters",
+    "django_nose",
     "drf_spectacular",
     "drf_spectacular_sidecar",
     "rest_framework",
@@ -126,6 +127,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Tell nose to measure coverage on the apps
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=user,core',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
