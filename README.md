@@ -5,6 +5,61 @@ The is a Django rest framework template.
 ## Project Directory Structure
 
 ```bash
+.
+├── core
+│   ├── admin.py
+│   ├── apps.py
+│   ├── classes.py
+│   ├── exceptions.py
+│   ├── __init__.py
+│   ├── literals.py
+│   ├── management
+│   │   └── commands
+│   │       └── makesuper.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── mixins.py
+│   ├── models.py
+│   ├── modelutils.py
+│   ├── pagination.py
+│   ├── permissions.py
+│   ├── serializers.py
+│   ├── tests.py
+│   ├── utils.py
+│   └── views.py
+├── Django_rest_framework_template
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── views.py
+│   └── wsgi.py
+├── example.env
+├── manage.py
+├── README.md
+├── requirements.txt
+├── scripts
+│   ├── deploy.sh
+│   └── fresh_init.sh
+├── templates
+│   └── email
+│       ├── account_verification.html
+│       └── password_reset.html
+└── user
+    ├── admin.py
+    ├── apps.py
+    ├── __init__.py
+    ├── migrations
+    │   ├── 0001_initial.py
+    │   └── __init__.py
+    ├── models.py
+    ├── serializers.py
+    ├── tests.py
+    ├── urls.py
+    ├── utils.py
+    └── views.py
+
+10 directories, 42 files
 
 ```
 
