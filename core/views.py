@@ -12,6 +12,7 @@ from rest_framework.generics import (
 )
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 
 from core.mixins import CustomListUpdateModelMixin, CustomListModelMixin
 from .utils import set_user_ip
@@ -74,9 +75,8 @@ class CustomRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
         return custom_response(response)
 
     def delete(self, request, *args, **kwargs):
-        response = super().delete(request, *args, **kwargs)
         set_user_ip(request)
-        return custom_response(response)
+        return super().delete(request, *args, **kwargs)
 
 
 class CustomCreateAPIView(CreateAPIView):
@@ -129,16 +129,14 @@ class CustomRetrieveDestroyAPIView(RetrieveDestroyAPIView):
         return custom_response(response)
 
     def delete(self, request, *args, **kwargs):
-        response = super().delete(request, *args, **kwargs)
         set_user_ip(request)
-        return custom_response(response)
+        return super().delete(request, *args, **kwargs)
 
 
 class CustomDestroyAPIView(DestroyAPIView):
     def delete(self, request, *args, **kwargs):
-        response = super().delete(request, *args, **kwargs)
         set_user_ip(request)
-        return custom_response(response)
+        return super().delete(request, *args, **kwargs)
 
 
 class CustomUpdateAPIView(UpdateAPIView):
@@ -172,4 +170,4 @@ class CustomAPIView(APIView):
         return self.get(request, response_data, *args, **kwargs)
 
     def delete(self, request, response_data=None, *args, **kwargs):
-        return self.get(request, response_data, *args, **kwargs)
+        return Response(status=status.HTTP_204_NO_CONTENT)
