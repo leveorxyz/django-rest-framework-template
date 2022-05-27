@@ -46,7 +46,7 @@ pre-commit==2.15.0
 pycodestyle==2.7.0
 pycparser==2.20
 pycryptodome==3.11.0
-PyJWT==2.3.0
+PyJWT==2.4.0
 pylint==2.11.1
 pyOpenSSL==21.0.0
 pyparsing==2.4.7
