@@ -211,11 +211,3 @@ class User(AbstractUser, CoreModel):
 
     def __repr__(self) -> str:
         return self.email
-
-
-class UserIp(CoreModel):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    ip_address = models.GenericIPAddressField()
-
-    def __str__(self):
-        return f"{self.user.id}-{self.ip_address}"
