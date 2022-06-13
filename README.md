@@ -40,7 +40,8 @@ The is a Django rest framework template.
 ├── requirements.txt
 ├── scripts
 │   ├── deploy.sh
-│   └── fresh_init.sh
+│   ├── fresh_init.sh
+│   └── locustfile.py
 ├── templates
 │   └── email
 │       ├── account_verification.html
@@ -59,7 +60,7 @@ The is a Django rest framework template.
     ├── utils.py
     └── views.py
 
-10 directories, 42 files
+10 directories, 43 files
 
 ```
 
