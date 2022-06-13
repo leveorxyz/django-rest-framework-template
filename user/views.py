@@ -19,7 +19,6 @@ from core.views import (
     CustomCreateAPIView,
     CustomAPIView,
 )
-from core.utils import set_user_ip
 from .models import User
 from .serializers import (
     UserSerializer,
@@ -60,7 +59,6 @@ class LoginView(GenericAPIView):
         # Checking if user is already logged in
         result = None
         if request.user.is_authenticated:
-            set_user_ip(request)
             result = UserLoginSerializer(request.user).data
 
         # Authenticating user

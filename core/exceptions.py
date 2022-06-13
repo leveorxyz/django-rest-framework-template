@@ -2,8 +2,6 @@ from rest_framework.response import Response
 from rest_framework.views import exception_handler
 from rest_framework.exceptions import ErrorDetail
 
-from .views import set_user_ip
-
 
 def recursive_error_message_creator(error_dict):
     """
@@ -24,7 +22,6 @@ def recursive_error_message_creator(error_dict):
 
 def custom_exception_handler(exception, context):
     response = exception_handler(exception, context)
-    set_user_ip(context["request"])
     if response:
         data = response.data
         message_list = []

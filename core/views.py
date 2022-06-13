@@ -15,7 +15,6 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from core.mixins import CustomListUpdateModelMixin, CustomListModelMixin
-from .utils import set_user_ip
 
 # Create your views here.
 
@@ -33,7 +32,6 @@ def custom_response(response):
 class CustomRetrieveAPIView(RetrieveAPIView):
     def get(self, request, *args, **kwargs):
         response = super().get(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
 
@@ -44,110 +42,91 @@ class CustomListUpdateAPIView(
 
     def get(self, request, *args, **kwargs):
         response = self.list(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def put(self, request, *args, **kwargs):
         response = self.update(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def patch(self, request, *args, **kwargs):
         response = self.partial_update(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
 
 class CustomRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     def get(self, request, *args, **kwargs):
         response = super().get(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def patch(self, request, *args, **kwargs):
         response = super().patch(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def put(self, request, *args, **kwargs):
         response = super().put(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def delete(self, request, *args, **kwargs):
-        set_user_ip(request)
         return super().delete(request, *args, **kwargs)
 
 
 class CustomCreateAPIView(CreateAPIView):
     def post(self, request, *args, **kwargs):
         response = super().post(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
 
 class CustomListAPIView(ListAPIView):
     def get(self, request, *args, **kwargs):
         response = super().get(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
 
 class CustomListCreateAPIView(ListCreateAPIView):
     def post(self, request, *args, **kwargs):
         response = super().post(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def get(self, request, *args, **kwargs):
         response = super().get(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
 
 class CustomRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     def get(self, request, *args, **kwargs):
         response = super().get(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def patch(self, request, *args, **kwargs):
         response = super().patch(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def put(self, request, *args, **kwargs):
         response = super().put(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
 
 class CustomRetrieveDestroyAPIView(RetrieveDestroyAPIView):
     def get(self, request, *args, **kwargs):
         response = super().get(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def delete(self, request, *args, **kwargs):
-        set_user_ip(request)
         return super().delete(request, *args, **kwargs)
 
 
 class CustomDestroyAPIView(DestroyAPIView):
     def delete(self, request, *args, **kwargs):
-        set_user_ip(request)
         return super().delete(request, *args, **kwargs)
 
 
 class CustomUpdateAPIView(UpdateAPIView):
     def patch(self, request, *args, **kwargs):
         response = super().patch(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
     def put(self, request, *args, **kwargs):
         response = super().put(request, *args, **kwargs)
-        set_user_ip(request)
         return custom_response(response)
 
 
